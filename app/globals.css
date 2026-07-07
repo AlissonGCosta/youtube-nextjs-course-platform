@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
 :root {
     --color-text: #ffffff;
@@ -7,4 +8,19 @@
     --color-primary: #009688;
     --color-background: #000000;
     --color-primary-contrast: #ffffff;
+}
+
+html[light]{
+     --color-text: #ffffff;
+    --color-error: #980000;
+    --color-paper: #232323;
+    --color-primary: #009688;
+    --color-background: #000000;
+    --color-primary-contrast: #ffffff;
+
+}
+
+html,
+body{
+    @apply bg-background text-text w-screen h-screen;
 }
