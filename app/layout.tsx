@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+
+
 import "./globals.css";
+import { Header } from "@/components/header/Header";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -24,7 +27,11 @@ export default function RootLayout({ children,}: Readonly<{children: React.React
       lang="pt-BR"
       className={`${nunito.variable} ${nuNito.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        
+        <Header/>
+
+        {children}</body>
     </html>
   );
 }
