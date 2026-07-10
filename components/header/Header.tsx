@@ -1,11 +1,18 @@
 'use client';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { MdMenu, MdOutlineOpenInNew } from "react-icons/md";
 
 
 export const Header = () => {
+    const [title, setTitle] =  useState('CodarSe');
     const currentPath = usePathname();
+
+    useEffect(() => {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setTitle(document.title);
+    }, [currentPath]);
 
     return(
         <header>
@@ -15,21 +22,27 @@ export const Header = () => {
                 </button>
 
                 <ul className= "flex gap-4 items-center">
-                    <li className= "my-2">
+                     <li className= "">
                         <Link href="/" className= "border-2 rounded-md py-1 px-2 fount-bold">
                             CODARSE
                         </Link>
                     </li>
+                </ul>
 
-                    <li className= "hidden sm:block">
+                <ul className= "flex gap-4 items-center fixed top-0 left-0 bottom-0">
+                   
+
+                    <li className= "">
                         <Link href="/" data-active ={currentPath === "/"} className="data-[active=true]:underline" >
                             Pagina inicial
                         </Link>
                     </li>
-                    <li className= "hidden sm:block">
+
+                    <li className= "">
                         <Link href="/cursos" data-active ={currentPath === "/cursos"} className="data-[active=true]:underline">Cursos</Link>
                     </li>
-                    <li className= "hidden sm:block" >
+
+                    <li className= "" >
                         <Link className= "flex items-center gap-1" href="https://blog.cordase.com" target = "_blank" >
                         blog
                         <MdOutlineOpenInNew/>
@@ -38,10 +51,12 @@ export const Header = () => {
                     
                 </ul>
                 <h1 className="sm:hidden">
-                    Codarse - pagina inicial
+                 {title}
                 </h1>
             </nav>
 
         </header>
     );
 };
+
+
