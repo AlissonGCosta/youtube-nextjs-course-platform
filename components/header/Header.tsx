@@ -29,7 +29,9 @@ export const Header = () => {
                     </li>
                 </ul>
 
-                <ul className= "flex gap-4 items-center fixed top-0 left-0 bottom-0">
+                <div className= "fixed top-0 left-0 bottom-0 right-0">
+
+                     <ul className= "flex gap-4 flex-col  p-4 w-60 bg-background ">
                    
 
                     <li className= "">
@@ -50,6 +52,10 @@ export const Header = () => {
                     </li>
                     
                 </ul>
+
+                </div>
+
+               
                 <h1 className="sm:hidden">
                  {title}
                 </h1>
