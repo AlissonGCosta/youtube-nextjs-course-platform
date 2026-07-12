@@ -10,15 +10,6 @@
     --color-primary-contrast: #ffffff;
 }
 
-html[light]{
-    --color-text: #000000;
-    --color-error: #980000;
-    --color-paper: #ffffff;
-    --color-primary: #009688;
-    --color-background: #cacaca;
-    --color-primary-contrast: #ffffff;
-
-}
 
 html,
 body{
