@@ -6,22 +6,25 @@ import { MdMenu, MdOutlineOpenInNew } from "react-icons/md";
 
 
 export const Header = () => {
+    const [drawer, setDrawer] =  useState(false);
     const [title, setTitle] =  useState('CodarSe');
     const currentPath = usePathname();
 
     useEffect(() => {
             // eslint-disable-next-line react-hooks/set-state-in-effect
+            setDrawer(false);
             setTitle(document.title);
     }, [currentPath]);
 
     return(
         <header>
             <nav className= "flex items-center gap-6 justify-start md:justify-center bg-primary py-2 px-6" >
-                <button className= "sm:hidden">
+
+                <button className= "sm:hidden" onClick={() => setDrawer(true)}>
                     <MdMenu size = {24}/>
                 </button>
 
-                <ul className= "flex gap-4 items-center">
+                <ul className= "flex gap-4 items-center" tabIndex={drawer ? -1 : undefined}>
                      <li className= "">
                         <Link href="/" className= "border-2 rounded-md py-1 px-2 fount-bold">
                             CODARSE
@@ -29,29 +32,35 @@ export const Header = () => {
                     </li>
                 </ul>
 
-                <div className= "fixed top-0 left-0 bottom-0 right-0">
+                <div data-open={drawer}
+                 tabIndex={drawer ? undefined : -1}
+                 onClick={() => setDrawer(false)}
+                 className= "bg-gradient-to-r from-background fixed top-0 left-0 bottom-0 right-0 transition-transform data-[open=false]:-translate-x-full">
 
-                     <ul className= "flex gap-4 flex-col  p-4 w-60 bg-background ">
+                     <ul onClick={e => e.stopPropagation()}
+                     className= "flex gap-4 flex-col  p-4 w-60 bg-background h-full">
                    
 
-                    <li className= "">
-                        <Link href="/" data-active ={currentPath === "/"} className="data-[active=true]:underline" >
-                            Pagina inicial
-                        </Link>
-                    </li>
+                        <li className= "">
+                            <Link href="/" data-active ={currentPath === "/"} className="data-[active=true]:underline" >
+                                Pagina inicial
+                            </Link>
+                        </li>
 
-                    <li className= "">
-                        <Link href="/cursos" data-active ={currentPath === "/cursos"} className="data-[active=true]:underline">Cursos</Link>
-                    </li>
+                        <li className= "">
+                            <Link href="/cursos" data-active ={currentPath === "/cursos"} className="data-[active=true]:underline">
+                                Cursos
+                            </Link>
+                        </li>
 
-                    <li className= "" >
-                        <Link className= "flex items-center gap-1" href="https://blog.cordase.com" target = "_blank" >
-                        blog
-                        <MdOutlineOpenInNew/>
-                        </Link>
-                    </li>
+                        <li className= "" >
+                            <Link className= "flex items-center gap-1" href="https://blog.cordase.com" target = "_blank" >
+                            blog
+                            <MdOutlineOpenInNew/>
+                            </Link>
+                        </li>
                     
-                </ul>
+                    </ul>
 
                 </div>
 
