@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Card } from "@/components/card/Card";
+import {Section} from "@/components/section/Section"
 
 export const metadata:Metadata = {
   title: "CodarSe - pagina inicial",
@@ -9,9 +10,11 @@ export const metadata:Metadata = {
 export default function PageHome() {
   return (
     <main>
+
+      <Section />
    
 
-      <Card
+      {/* <Card
      
       href="/cursos/"
       image="https://i.ytimg.com/vi/bP47qRVRqQs/hqdefault.jpg"
@@ -57,7 +60,7 @@ export default function PageHome() {
                   `}
 
 
-      />
+      /> */}
     </main>
   );
 }
