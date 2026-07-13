@@ -10,7 +10,7 @@ interface ICardPropos{
 }
 export const Card = ({title, image, description, href} :ICardPropos) => {
     return(
-        <Link href ={href} className="hover: no-underline ">
+        <Link href ={href} className="hover:no-underline">
             <article className= "flex flex-col gap-2 p-2 rounded sm:hover:bg-primary"> 
                 
             <Image
