@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+
 :root {
     --color-text: #ffffff;
     --color-error: #980000;
@@ -13,9 +14,10 @@
 
 html,
 body{
+    overflow: overlay;
     @apply bg-background text-text w-screen h-screen underline-offset-4;
 }
 
 a{
-    @apply hover:underline active:opacity-50 transition-opacity;
+    @apply hover:underline active:opacity-50 transition-opacity ;
 }
