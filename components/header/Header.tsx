@@ -42,11 +42,6 @@ export const Header = () => {
             gap-4 items-center
           "
         >
-          <li
-            className="
-
-            "
-          >
             <Link
               href="/"
               className="
@@ -57,6 +52,61 @@ export const Header = () => {
             >
               CODARSE
             </Link>
+
+            <li
+               className="
+                hidden sm:block
+              "
+            >
+              <Link
+                href="/"
+                data-active={currentPath === "/"}
+                className="
+                  
+                "
+              >
+                Pagina inicial
+              </Link>
+            </li>
+
+            <li
+              className="
+                hidden sm:block
+              "
+            >
+              <Link
+                href="/cursos/"
+                data-active={currentPath === "/cursos"}
+                className="
+                  
+                "
+              >
+                Cursos
+              </Link>
+            </li>
+
+            <li
+              className="
+               hidden sm:block   
+              "
+            >
+              <Link
+                href="https://blog.cordase.com"
+                target="_blank"
+                className="
+                  flex
+                  items-center gap-1"
+              >
+                blog
+                <MdOutlineOpenInNew />
+              </Link>
+            </li>
+          <li
+            className="
+
+            "
+          >
+          
           </li>
         </ul>
 
